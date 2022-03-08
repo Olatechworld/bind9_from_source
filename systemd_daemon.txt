@@ -1,0 +1,15 @@
+[Unit]
+Description=named Daemon
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/usr/local/sbin
+ExecStart=/usr/local/sbin/named -g -c /usr/local/etc/named.conf
+
+[Install]
+WantedBy=multi-user.target
